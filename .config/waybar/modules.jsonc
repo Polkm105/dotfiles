@@ -1,0 +1,99 @@
+{
+    "disk": {
+        "format": "{percentage_used}% ",
+        "interval": 30,
+    },
+    "cpu": {
+        "format": "{usage}% ",
+        "interval": 5,
+    },
+    "memory": {
+        "format": "{}% ",
+        "interval": 5,
+    },
+    "temperature": {
+        "hwmon-path": "/sys/class/hwmon/hwmon4/temp1_input",
+        "format": "{temperatureC}° ",
+        "interval": 5,
+        "tooltip": false,
+    },
+    "network": {
+        "format-wifi": "{signalStrength}% 󰖩",
+        "format-ethernet": "{essid} 󰈀",
+        "tooltip-format": "{essid}({frequency}Ghz)  {bandwidthUpBytes} 󰕒  {bandwidthDownBytes} 󰇚",
+        "format-linked": "{ifname} 󰈀",
+        "format-disconnected": "󰖪",
+        "format-alt": "{ipaddr}/{cidr}"
+    },
+    "bluetooth": {
+        "format": "󰂲",
+        "format-on": "󰂯",
+        "format-connected": "{num_connections} connected 󰂯",
+	"tooltip-format": "{controller_alias}: {controller_address}",
+	"tooltip-format-connected": "{controller_alias}: {controller_address}\n\n{device_enumerate}",
+	"tooltip-format-enumerate-connected": "{device_alias}: {device_address}",
+        "on-click": ".config/waybar/bluetooth.sh &",
+    },
+    "battery": {
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon} ",
+        "format-charging": "{capacity}% 󰂄",
+        "format-plugged": "{capacity}% ",
+        "format-icons": ["", "", "", "", ""],
+        "interval": 3
+    },
+    "clock": {
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": "{:%Y-%m-%d}"
+    },
+    "mpd": {
+        "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ",
+        "format-disconnected": "Disconnected ",
+        "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
+        "interval": 10,
+        "consume-icons": {
+            "on": " " // Icon shows only when "consume" is on
+        },
+        "random-icons": {
+            "off": "<span color=\"#f53c3c\"></span> ", // Icon grayed out when "random" is off
+            "on": " "
+        },
+        "repeat-icons": {
+            "on": " "
+        },
+        "single-icons": {
+            "on": "1"
+        },
+        "state-icons": {
+            "paused": "",
+            "playing": ""
+        },
+        "tooltip-format": "MPD (connected)",
+        "tooltip-format-disconnected": "MPD (disconnected)"
+    },
+    "hyprland/window": {
+        "format": "{}",
+        "rewrite": {
+            "(.*) — Mozilla Firefox": "$1",
+        },
+        "separate-outputs": true
+    },
+    "hyprland/workspaces": {
+        "on-click": "activate",
+        "all-outputs": true,
+        "format": "{}",
+        "format-icons": {
+            "urgent": "",
+            "active": "",
+            "default": "",
+        },
+    },
+    "custom/power": {
+        "format": "",
+        "on-click": "~/.config/hypr/scripts/power-settings"
+    },
+}

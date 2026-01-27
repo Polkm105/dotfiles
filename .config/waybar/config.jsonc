@@ -1,0 +1,46 @@
+// -*- mode: jsonc -*-
+{
+    "layer": "top", // Waybar at top layer
+    "position": "top", // Waybar position (top|bottom|left|right)
+    "height": 30, // Waybar height (to be removed for auto height)
+    // "width": 1280, // Waybar width
+    "spacing": 4, // Gaps between modules (4px)
+    "exclusive": true,
+    "reload_style_on_change": true,
+
+    // Load Modules
+    "include": [".config/waybar/modules.jsonc"],
+
+    // Choose the order of the modules
+    "modules-left": [
+        "hyprland/window",
+    ],
+    "modules-center": [
+        "hyprland/workspaces",
+    ],
+    "modules-right": [
+        "group/networking",
+        "group/hardware",
+        "battery",
+        "clock",
+        "custom/power"
+    ],
+
+    // Groups
+    "group/hardware": {
+        "orientation": "horizontal",
+        "modules": [
+            "disk",
+            "cpu",
+            "memory",
+            "temperature"
+        ]
+    },
+    "group/networking": {
+        "orientation": "horizontal",
+        "modules": [
+            "network",
+            "bluetooth"
+        ]
+    },
+}

@@ -1,0 +1,47 @@
+[config]
+
+[templates.alacritty]
+input_path = 'templates/alacritty.toml'
+output_path = '~/.config/alacritty/colors.toml'
+
+[templates.dunst]
+input_path = 'templates/dunstrc-colors'
+output_path = '~/.config/dunst/dunstrc'
+
+[templates.gtk3]
+input_path = 'templates/gtk-colors.css'
+output_path = '~/.config/gtk-3.0/colors.css'
+
+[templates.gtk4]
+input_path = 'templates/gtk-colors.css'
+output_path = '~/.config/gtk-4.0/colors.css'
+
+[templates.hyprland]
+input_path = 'templates/hyprland-colors.conf'
+output_path = '~/.config/hypr/colors.conf'
+
+[templates.pywalfox]
+input_path = 'templates/pywalfox-colors.json'
+output_path = '~/.cache/wal/colors.json'
+post_hook = 'pywalfox update'
+
+[templates.qt5ct]
+input_path = 'templates/qtct-colors.conf'
+output_path = '~/.config/qt5ct/colors/matugen.conf'
+
+[templates.qt6ct]
+input_path = 'templates/qtct-colors.conf'
+output_path = '~/.config/qt6ct/colors/matugen.conf'
+
+[templates.waybar]
+input_path = 'templates/colors.css'
+output_path = '~/.config/waybar/colors.css'
+
+[templates.wlogout]
+input_path = 'templates/colors.css'
+output_path = '~/.config/wlogout/colors.css'
+
+[templates.wofi]
+input_path = 'templates/colors.css'
+output_path = '~/.config/wofi/colors.css'
+

@@ -1,0 +1,155 @@
+@import "colors.css";
+
+* {
+    /* `otf-font-awesome` is required to be installed for icons */
+    font-family: Hack, FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+    margin: 1px;
+    border: none;
+    border-radius: 2em;
+    min-width: 1em;
+    background: transparent;
+}
+
+tooltip * {
+    padding: 0 .5em;
+    background: @background;
+    color: @on_background;
+}
+
+/* ------------------------------------------------------
+ * Groups
+ * ------------------------------------------------------ */
+
+#window, 
+#workspaces, 
+#networking, 
+#hardware, 
+#battery, 
+#clock, 
+#custom-power,
+#group {
+    padding: 1px;
+    border: 2px solid @outline;
+    background: @background;
+    color: @on_background;
+    opacity: 0.9;
+}
+
+/* ------------------------------------------------------
+ * Modules
+ * ------------------------------------------------------ */
+
+#window,
+#workspaces button,
+#network, #bluetooth,
+#disk, #cpu, #memory, #temperature,
+#battery,
+#clock,
+#custom-power,
+#module {
+    padding: 0 .5em;
+    background: @background;
+    color: @on_background;
+    opacity: 0.9;
+}
+
+/* ------------------------------------------------------
+ * Buttons
+ * ------------------------------------------------------ */
+
+#workspaces button:hover,
+#network:hover, #bluetooth:hover,
+#clock:hover,
+#custom-power:hover,
+#hover {
+    background: @secondary;
+    color: @on_secondary;
+    opacity: 0.9;
+    transition: all .2s ease-in-out;
+}
+
+/* ------------------------------------------------------
+ * Window
+ * ------------------------------------------------------ */
+
+window#waybar.empty {
+    opacity: 0;
+}
+
+/* ------------------------------------------------------
+ * Workspaces
+ * ------------------------------------------------------ */
+
+#workspaces button {
+    background: @secondary_container;
+    color: @on_secondary_container;
+    transition: all .2s ease-in-out;
+}
+
+#workspaces button.active {
+    min-width: 3em;
+    background: @primary;
+    color: @on_primary;
+}
+
+#workspaces button.urgent {
+    background: @error;
+    color: @on_error;
+}
+
+/* ------------------------------------------------------
+ * Networking
+ * ------------------------------------------------------ */
+
+#network {
+    padding-right: .9em;
+}
+
+#bluetooth {
+    padding-right: .6em;
+}
+
+/* ------------------------------------------------------
+ * Hardware
+ * ------------------------------------------------------ */
+
+#disk {
+    padding-right: .7em;
+}
+
+#cpu {
+    padding-right: .9em;
+}
+
+#memory {
+    padding-right: .8em;
+}
+
+/* ------------------------------------------------------
+ * Battery
+ * ------------------------------------------------------ */
+
+@keyframes blink {
+    to {
+        color: @on_background;
+    }
+}
+
+/* Using steps() instead of linear as a timing function to limit cpu usage */
+#battery.critical:not(.charging) {
+    color: @background;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: steps(12);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+/* ------------------------------------------------------
+ * Power
+ * ------------------------------------------------------ */
+
+#custom-power {
+    padding-right: .75em;
+}
+

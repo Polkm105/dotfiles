@@ -1,0 +1,8 @@
+# general.import = ["colors.toml"]
+general.import = []
+general.live_config_reload = true
+terminal.shell = "/bin/zsh"
+
+[font]
+size = 12.0
+

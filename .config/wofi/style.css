@@ -1,0 +1,54 @@
+@import ".config/wofi/colors.css";
+
+window {
+    background-color: @background; 
+    border: 2px solid @outline;
+}
+
+/*
+#outer-box {
+    background-color: rgba(20, 20,20, 0.7);
+    border: 1px solid rgba(255, 0, 0, 0.5);
+}*/
+
+#input {
+    margin: 10 100;
+    border: 1px solid @outline;
+    border-radius: 2em; 
+
+    background-color: @inverse_primary;
+    color: @on_inverse_primary;
+    opacity: 0.9;
+}
+
+#input:focus {
+    border: 1px solid @primary;
+
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+
+    box-shadow: none;
+    background: @inverse_primary;
+    color: @on_inverse_primary;
+}
+
+#entry {
+    border-radius: 1em;
+    margin: 5 20;
+    padding-left: 10px;
+}
+
+#entry:focus, #entry.activatable {
+    border: 1px solid @outline;
+    padding-left: 20px;
+    background: @primary_container;
+    color: @primary_container;
+    transition: all .1s ease-in-out;
+}
+
+#entry:focus #text, #entry.activatable #text {
+    font-weight: bold;
+}
+
