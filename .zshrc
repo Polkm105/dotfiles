@@ -16,10 +16,6 @@ typeset -U path PATH
 path=(~/.local/bin $path)
 export PATH
 
-if [ -z "$DISPLAY" ] && [ "$(tty)" = "/dev/tty1" ]; then
-  exec Hyprland &
-fi
-
 zstyle ':completion:*' menu select
 export KEYTIMEOUT=5
 autoload -Uz promptinit

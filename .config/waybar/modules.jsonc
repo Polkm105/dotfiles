@@ -94,6 +94,6 @@
     },
     "custom/power": {
         "format": "",
-        "on-click": "~/.config/hypr/scripts/power-settings"
+        "on-click": "~/.config/scripts/power-settings.sh"
     },
 }
