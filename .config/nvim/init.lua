@@ -254,9 +254,8 @@ require("lazy").setup({
 	"NMAC427/guess-indent.nvim", -- Detect tabstop and shiftwidth automatically
 
 	require("plugins.session-manager"),
-	-- Change default :bd to keep splits open
-	"famiu/bufdelete.nvim",
 
+	require("plugins.utility"),
 	require("plugins.debug"),
 	require("plugins.lsp"),
 	require("plugins.rust"),
@@ -558,7 +557,6 @@ require("lazy").setup({
 				"markdown",
 				"markdown_inline",
 				"query",
-				"rust",
 				"vim",
 				"vimdoc",
 			},
