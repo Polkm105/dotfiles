@@ -9,5 +9,11 @@ return {
 	{ "akinsho/toggleterm.nvim", version = "*", config = true },
 
 	-- Change default :bd to keep splits open
-	"famiu/bufdelete.nvim",
+	{
+		"famiu/bufdelete.nvim",
+		config = function()
+			local bd = require("bufdelete")
+			vim.keymap.set("n", "<leader>bd", bd.bufdelete, { desc = "Delete current [B]uffer" })
+		end,
+	},
 }
