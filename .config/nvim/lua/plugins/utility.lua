@@ -1,3 +1,9 @@
+vim.api.nvim_create_autocmd("QuickFixCmdPost", {
+	pattern = "[^l]*",
+	nested = true,
+	command = "cwindow",
+})
+
 return {
 	-- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
 	"NMAC427/guess-indent.nvim", -- Detect tabstop and shiftwidth automatically
