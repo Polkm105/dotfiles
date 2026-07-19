@@ -7,9 +7,7 @@
 -- kickstart.nvim and not kitchen-sink.nvim ;)
 
 return {
-  -- NOTE: Yes, you can install new plugins here!
   'mfussenegger/nvim-dap',
-  -- NOTE: And you can specify dependencies as well
   dependencies = {
     -- Creates a beautiful debugger UI
     'rcarriga/nvim-dap-ui',
@@ -25,7 +23,6 @@ return {
     'leoluz/nvim-dap-go',
   },
   keys = {
-    -- Basic debugging keymaps, feel free to change to your liking!
     {
       '<F5>',
       function()
@@ -34,39 +31,39 @@ return {
       desc = 'Debug: Start/Continue',
     },
     {
-      '<F1>',
+      '<F11>',
       function()
         require('dap').step_into()
       end,
       desc = 'Debug: Step Into',
     },
     {
-      '<F2>',
+      '<F10>',
       function()
         require('dap').step_over()
       end,
       desc = 'Debug: Step Over',
     },
     {
-      '<F3>',
+      '<S-F11>',
       function()
         require('dap').step_out()
       end,
       desc = 'Debug: Step Out',
     },
     {
-      '<leader>b',
+      '<leader>db',
       function()
         require('dap').toggle_breakpoint()
       end,
-      desc = 'Debug: Toggle Breakpoint',
+      desc = '[D]ebug: Toggle [B]reakpoint',
     },
     {
-      '<leader>B',
+      '<leader>dc',
       function()
         require('dap').set_breakpoint(vim.fn.input 'Breakpoint condition: ')
       end,
-      desc = 'Debug: Set Breakpoint',
+      desc = '[D]ebug: [C]onditional Breakpoint',
     },
     -- Toggle to see last session result. Without this, you can't see session output in case of unhandled exception.
     {

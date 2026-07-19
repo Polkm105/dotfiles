@@ -1,5 +1,3 @@
--- Set <space> as the leader key
--- See `:help mapleader`
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
@@ -40,10 +38,16 @@ vim.opt.rtp:prepend(lazypath)
 --
 -- NOTE: Here is where you install your plugins.
 require('lazy').setup({
-  -- Auto import lua/plugins/lang/*.lua
-  { import = 'plugins.lang' },
-  -- Auto import lua/plugins/*.lua
-  { import = 'plugins' },
+  spec = {
+    -- Auto import lua/plugins/lang/*.lua
+    { import = 'plugins.lang' },
+    -- Auto import lua/plugins/*.lua
+    { import = 'plugins' },
+  },
+
+  change_detection = {
+    enabled = false, -- Disables the popup notification
+  },
 }, {
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the
