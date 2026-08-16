@@ -1,0 +1,21 @@
+return {
+  -- {
+  --   'mxsdev/nvim-dap-vscode-js',
+  --   dependencies = { 'mfussenegger/nvim-dap' },
+  --   build = 'npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out',
+  --   config = function()
+  --     require('dap-vscode-js').setup {
+  --       -- Path to the cloned directory (handled by lazy.nvim)
+  --       debugger_path = vim.fn.stdpath 'data' .. '/lazy/nvim-dap-vscode-js',
+  --       -- Which adapters to register
+  --       adapters = {
+  --         'pwa-node',
+  --         'pwa-chrome',
+  --         'pwa-msedge',
+  --         'node-terminal',
+  --         'pwa-extensionHost',
+  --       },
+  --     }
+  --   end,
+  -- },
+}

@@ -2,10 +2,9 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
-require 'config.globals'
-require 'config.options'
-require 'config.keymaps'
-require 'config.autocmds'
+vim.g.loaded_perl_provider = 0 -- disable perl
+vim.g.loaded_ruby_provider = 0 -- disable ruby
+vim.g.loaded_python3_provider = 0 -- disable python3
 
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
@@ -70,4 +69,7 @@ require('lazy').setup({
   },
 })
 
--- The line beneath this is called `modeline`. See `:help modeline`
+require 'config.globals'
+require 'config.options'
+require 'config.keymaps'
+require 'config.autocmds'

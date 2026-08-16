@@ -1,11 +1,24 @@
 return {
   {
     'mrcjkb/rustaceanvim',
-    -- To avoid being surprised by breaking changes,
-    -- I recommend you set a version range
-    version = '^9',
-    -- This plugin implements proper lazy-loading (see :h lua-plugin-lazy).
-    -- No need for lazy.nvim to lazy-load it.
-    lazy = false,
+    version = '^9', -- Recommended
+    lazy = false, -- This plugin is already lazy
+  },
+  {
+    'saecki/crates.nvim',
+    event = { 'BufRead Cargo.toml' },
+    ft = { 'toml' },
+    opts = {
+      completion = {
+        crates = { enabled = true },
+        cmp = { enabled = true },
+      },
+      lsp = {
+        enabled = true,
+        actions = true,
+        completion = true,
+        hover = true,
+      },
+    },
   },
 }

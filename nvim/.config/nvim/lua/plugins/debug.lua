@@ -8,6 +8,15 @@
 
 return {
   'mfussenegger/nvim-dap',
+  ft = {
+    'javascript',
+    'typescript',
+    -- 'javascriptreact',
+    -- 'typescriptreact',
+    'rust',
+    'cpp',
+    'c',
+  },
   dependencies = {
     -- Creates a beautiful debugger UI
     'rcarriga/nvim-dap-ui',
@@ -21,6 +30,7 @@ return {
 
     -- Add your own debuggers here
     'leoluz/nvim-dap-go',
+    'mxsdev/nvim-dap-vscode-js',
   },
   keys = {
     {

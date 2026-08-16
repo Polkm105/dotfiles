@@ -11,5 +11,8 @@ return {
   opts = {
     -- Your custom oil configurations go here
     default_file_explorer = true,
+    view_options = {
+      show_hidden = true,
+    },
   },
 }
