@@ -16,8 +16,6 @@ return {
                 env = {
                   api_key = 'not-needed',
                   url = '10.0.0.130:8080',
-                  -- api_key = 'file:~/.config/nvim/.llama-cpp-api-key',
-                  -- url = 'https://llm.kmecham.dev',
                   chat_url = '/v1/chat/completions',
                 },
                 handlers = {
