@@ -112,5 +112,29 @@ return {
       end,
     },
   },
-  { 'sindrets/diffview.nvim' },
+  {
+    'sindrets/diffview.nvim',
+    config = function() end,
+    keys = {
+      { '<leader>gd', '<cmd>:DiffviewOpen<cr>' },
+    },
+  },
+  {
+    'NeogitOrg/neogit',
+    lazy = true,
+    dependencies = {
+      -- Only one of these is needed.
+      'sindrets/diffview.nvim',
+
+      -- For a custom log pager
+      'm00qek/baleia.nvim',
+
+      -- Only one of these is needed.
+      'nvim-telescope/telescope.nvim',
+    },
+    cmd = 'Neogit',
+    keys = {
+      { '<leader>gg', '<cmd>Neogit<cr>', desc = 'Show Neogit UI' },
+    },
+  },
 }
