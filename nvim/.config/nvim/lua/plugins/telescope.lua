@@ -17,7 +17,7 @@ return {
       end,
     },
     { 'nvim-telescope/telescope-ui-select.nvim' },
-
+    { 'nvim-telescope/telescope-live-grep-args.nvim', version = '^1.0.0' },
     -- Useful for getting pretty icons, but requires a Nerd Font.
     { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
   },
@@ -57,15 +57,21 @@ return {
         ['ui-select'] = {
           require('telescope.themes').get_dropdown(),
         },
+        ['live_grep_args'] = {
+          auto_quoting = true,
+        },
       },
     }
 
     -- Enable Telescope extensions if they are installed
     pcall(require('telescope').load_extension, 'fzf')
     pcall(require('telescope').load_extension, 'ui-select')
+    pcall(require('telescope').load_extension, 'live_grep_args')
 
     -- See `:help telescope.builtin`
     local builtin = require 'telescope.builtin'
+    local livegrep = require('telescope').extensions.live_grep_args
+
     vim.keymap.set(
       'n',
       '<leader>sh',
@@ -99,7 +105,7 @@ return {
     vim.keymap.set(
       'n',
       '<leader>sg',
-      builtin.live_grep,
+      livegrep.live_grep_args,
       { desc = '[S]earch by [G]rep' }
     )
     vim.keymap.set(

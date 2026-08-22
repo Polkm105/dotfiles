@@ -7,6 +7,11 @@ return {
       'nvim-treesitter/nvim-treesitter',
     },
     opts = {
+      display = {
+        chat = {
+          show_reasoning = true,
+        },
+      },
       adapters = {
         http = {
           ['llama.cpp'] = function()
@@ -29,6 +34,34 @@ return {
                       end
                     end
                     return data
+                  end,
+                  form_messages = function(self, messages)
+                    local system_messages = {}
+                    local other_messages = {}
+
+                    for _, msg in ipairs(messages) do
+                      if msg.role == 'system' then
+                        table.insert(system_messages, msg.content)
+                      else
+                        table.insert(other_messages, msg)
+                      end
+                    end
+
+                    local system_message = table.concat(system_messages, '\n\n')
+
+                    local final_messages = {
+                      {
+                        role = 'system',
+                        content = system_message,
+                      },
+                    }
+
+                    for _, msg in ipairs(other_messages) do
+                      table.insert(final_messages, msg)
+                    end
+
+                    local openai = require 'codecompanion.adapters.http.openai'
+                    return openai.handlers.form_messages(self, final_messages)
                   end,
                 },
               }

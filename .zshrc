@@ -13,7 +13,7 @@ compinit
 # End of lines added by compinstall
 
 typeset -U path PATH
-path=(~/.local/bin $path)
+path=(~/.cargo/bin ~/.local/bin $path)
 export PATH
 
 zstyle ':completion:*' menu select
