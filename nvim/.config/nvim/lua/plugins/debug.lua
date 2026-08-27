@@ -11,8 +11,8 @@ return {
   ft = {
     'javascript',
     'typescript',
-    -- 'javascriptreact',
-    -- 'typescriptreact',
+    'javascriptreact',
+    'typescriptreact',
     'rust',
     'cpp',
     'c',
@@ -20,6 +20,7 @@ return {
   dependencies = {
     -- Creates a beautiful debugger UI
     'rcarriga/nvim-dap-ui',
+    'theHamsta/nvim-dap-virtual-text',
 
     -- Required dependency for nvim-dap-ui
     'nvim-neotest/nvim-nio',
@@ -41,18 +42,18 @@ return {
       desc = 'Debug: Start/Continue',
     },
     {
-      '<F11>',
-      function()
-        require('dap').step_into()
-      end,
-      desc = 'Debug: Step Into',
-    },
-    {
       '<F10>',
       function()
         require('dap').step_over()
       end,
       desc = 'Debug: Step Over',
+    },
+    {
+      '<F11>',
+      function()
+        require('dap').step_into()
+      end,
+      desc = 'Debug: Step Into',
     },
     {
       '<S-F11>',
@@ -62,6 +63,13 @@ return {
       desc = 'Debug: Step Out',
     },
     {
+      '<F4>',
+      function()
+        require('dap').terminate()
+      end,
+      desc = 'Debug: Terminate',
+    },
+    {
       '<leader>db',
       function()
         require('dap').toggle_breakpoint()
@@ -69,11 +77,18 @@ return {
       desc = '[D]ebug: Toggle [B]reakpoint',
     },
     {
-      '<leader>dc',
+      '<leader>dB',
       function()
         require('dap').set_breakpoint(vim.fn.input 'Breakpoint condition: ')
       end,
-      desc = '[D]ebug: [C]onditional Breakpoint',
+      desc = '[D]ebug: conditional [B]reakpoint',
+    },
+    {
+      '<leader>da',
+      function()
+        require('dap').attach(vim.fn.input 'Breakpoint condition: ')
+      end,
+      desc = '[D]ebug: conditional [B]reakpoint',
     },
     -- Toggle to see last session result. Without this, you can't see session output in case of unhandled exception.
     {
@@ -99,10 +114,19 @@ return {
 
       -- You'll need to check that you have the required things installed
       -- online, please don't ask me how to install them :)
-      ensure_installed = {
-        -- Update this to ensure that you have the debuggers for the langs you want
-        'delve',
-      },
+      ensure_installed = {},
+    }
+
+    dap.adapters.lldb = {
+      type = 'executable',
+      command = '/usr/bin/lldb-dap',
+      name = 'lldb',
+    }
+
+    dap.adapters.gdb = {
+      type = 'executable',
+      command = 'gdb',
+      args = { '--interpreter=dap' },
     }
 
     -- Dap UI setup

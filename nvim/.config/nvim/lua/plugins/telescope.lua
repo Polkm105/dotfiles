@@ -59,6 +59,16 @@ return {
         },
         ['live_grep_args'] = {
           auto_quoting = true,
+          vimgrep_arguments = {
+            'rg',
+            '--color=never',
+            '--no-heading',
+            '--with-filename',
+            '--line-number',
+            '--column',
+            '--smart-case',
+            '--sort=path',
+          },
         },
       },
     }
