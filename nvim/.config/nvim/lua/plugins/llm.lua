@@ -72,9 +72,11 @@ return {
       interactions = {
         chat = {
           adapter = 'llama.cpp',
+          model = 'Qwen-3.8-27B',
         },
         inline = {
           adapter = 'llama.cpp',
+          model = 'Qwen-3.8-27B',
         },
       },
     },

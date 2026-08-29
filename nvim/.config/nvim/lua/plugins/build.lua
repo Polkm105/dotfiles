@@ -8,16 +8,13 @@ return {
     keys = {
       {
         '<leader>pp',
-        '<cmd>OverseerToggle<cr>',
-        desc = '[P]roject toggle settings',
-      },
-      {
-        '<leader>pp',
         '<cmd>OverseerRun<cr>',
-        desc = '[P]roject run',
+        desc = '[P]roject [P]ick task',
       },
       {
-        '<leader>pr',
+        '<leader>po',
+        '<cmd>OverseerToggle<cr>',
+        desc = '[P]roject [O]pen runs',
       },
     },
   },

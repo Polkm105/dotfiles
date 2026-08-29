@@ -58,3 +58,13 @@ vim.opt.scrolloff = 10
 -- instead raise a dialog asking if you wish to save the current file(s)
 -- See `:help 'confirm'`
 vim.opt.confirm = true
+
+-- Border style for all floaters (completions, help, etc.)
+--  See `:help 'winborder'`
+vim.opt.winborder = 'rounded'
+
+-- Keep undo history larger
+vim.opt.undolevels = 10000
+
+-- What to include when saving/loading a session
+vim.opt.sessionoptions = { 'curdir', 'folds', 'winsize' }

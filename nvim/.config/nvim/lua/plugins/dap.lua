@@ -1,11 +1,3 @@
--- debug.lua
---
--- Shows how to use the DAP plugin to debug your code.
---
--- Primarily focused on configuring the debugger for Go, but can
--- be extended to other languages as well. That's why it's called
--- kickstart.nvim and not kitchen-sink.nvim ;)
-
 return {
   'mfussenegger/nvim-dap',
   ft = {
@@ -88,7 +80,7 @@ return {
       function()
         require('dap').attach(vim.fn.input 'Breakpoint condition: ')
       end,
-      desc = '[D]ebug: conditional [B]reakpoint',
+      desc = '[D]ebug: attach',
     },
     -- Toggle to see last session result. Without this, you can't see session output in case of unhandled exception.
     {
@@ -129,6 +121,26 @@ return {
       args = { '--interpreter=dap' },
     }
 
+    dap.adapters.codelldb = {
+      type = 'server',
+      host = 'localhost',
+      port = '${port}',
+      executable = {
+        command = 'codelldb',
+        args = { '--port', '${port}' },
+      },
+    }
+
+    -- JavaScript/TypeScript (Node.js) debug adapter
+    dap.adapters['pwa-node'] = {
+      type = 'server',
+      port = '${port}',
+      executable = {
+        command = 'js-debug-adapter',
+        args = { '${port}' },
+      },
+    }
+
     -- Dap UI setup
     -- For more information, see |:help nvim-dap-ui|
     dapui.setup {
@@ -167,13 +179,16 @@ return {
     dap.listeners.before.event_terminated['dapui_config'] = dapui.close
     dap.listeners.before.event_exited['dapui_config'] = dapui.close
 
-    -- Install golang specific config
-    require('dap-go').setup {
-      delve = {
-        -- On Windows delve must be run attached or it crashes.
-        -- See https://github.com/leoluz/nvim-dap-go/blob/main/README.md#configuring
-        detached = vim.fn.has 'win32' == 0,
-      },
-    }
+    -- Load all DAP configurations from the dap/ directory
+    local dap_config_dir = vim.fn.stdpath 'config' .. '/lua/plugins/dap'
+    local config_files = vim.fn.glob(dap_config_dir .. '/*.lua', true, true)
+    table.sort(config_files) -- deterministic order (e.g. javascript before typescript)
+    for _, config_file in ipairs(config_files) do
+      local config_name = vim.fn.fnamemodify(config_file, ':t:r')
+      local config = require('plugins.dap.' .. config_name)
+      if config.setup then
+        config.setup()
+      end
+    end
   end,
 }
