@@ -40,8 +40,6 @@ vim.opt.rtp:prepend(lazypath)
 -- NOTE: Here is where you install your plugins.
 require('lazy').setup({
   spec = {
-    -- Auto import lua/plugins/lang/*.lua
-    { import = 'plugins.lang' },
     -- Auto import lua/plugins/*.lua
     { import = 'plugins' },
   },
