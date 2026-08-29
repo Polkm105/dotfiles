@@ -10,7 +10,6 @@ return {
         return vim.fn.executable 'make' == 1
       end,
     },
-    { 'nvim-telescope/telescope-ui-select.nvim' },
     { 'nvim-telescope/telescope-live-grep-args.nvim', version = '^1.0.0' },
     { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
   },
