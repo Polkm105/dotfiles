@@ -24,6 +24,14 @@ return {
         'dist/',
         'build/',
       },
+      mappings = {
+        n = {
+          ['<C-c>'] = require('telescope.actions').close,
+        },
+        i = {
+          ['<C-c>'] = require('telescope.actions').close,
+        },
+      },
     },
     extensions = {
       ['ui-select'] = {
@@ -53,7 +61,6 @@ return {
   end,
   keys = {
     { '<leader>sh', '<cmd>Telescope help_tags<cr>', desc = '[S]earch [H]elp' },
-    { '<leader>sk', '<cmd>Telescope keymaps<cr>', desc = '[S]earch [K]eymaps' },
     {
       '<leader>sf',
       '<cmd>Telescope find_files<cr>',
