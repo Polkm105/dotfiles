@@ -2,16 +2,10 @@ return {
   'stevearc/dressing.nvim',
   opts = {
     input = {
-      title_pos = 'center',
-      start_mode = 'normal',
-
-      mappings = {
-        n = {
-          ['<C-c>'] = 'Close',
-        },
-      },
+      enabled = false,
     },
     select = {
+      enabled = true,
       backend = { 'telescope' },
       telescope = require('telescope.themes').get_dropdown {
         layout_strategy = 'horizontal',
